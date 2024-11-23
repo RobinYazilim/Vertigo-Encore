@@ -72,6 +72,45 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Dialogue",
+            "id": "d682d561-6b3a-41a2-ae4e-2910e0beabbc",
+            "actions": [
+                {
+                    "name": "ProgressDialogue",
+                    "type": "Button",
+                    "id": "f9585ce2-f36d-47d5-bf9e-141b5b8411ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d6e60c71-45db-41ba-bbce-39fc21c5a576",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ProgressDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bb54390-a6cc-45c2-be2d-587903daf572",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ProgressDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

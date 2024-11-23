@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa661e5b2b66fc04292b200ee468343f, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - speakerName: Hz Muhammed
+    dialogueText: Ey kafirler!
+    characterPhoto: {fileID: 0}
+    letterSound: {fileID: 0}
+  - speakerName: Hz Muhammed
+    dialogueText: "Ben sizin tapt\u0131klar\u0131n\u0131za tapmam."
+    characterPhoto: {fileID: 0}
+    letterSound: {fileID: 0}
+  - speakerName: Hz Muhammed
+    dialogueText: "Benim tapt\u0131g\u0131ma da sizler tapmazs\u0131n\u0131z."
+    characterPhoto: {fileID: 0}
+    letterSound: {fileID: 0}
+  - speakerName: Hz Muhammed
+    dialogueText: "Ben de sizin tapt\u0131\u011F\u0131n\u0131za tapacak de\u011Filim."
+    characterPhoto: {fileID: 0}
+    letterSound: {fileID: 0}
+  - speakerName: Hz Muhammed
+    dialogueText: "Benim tapt\u0131\u011F\u0131ma da sizler tapm\u0131yorsunuz."
+    characterPhoto: {fileID: 0}
+    letterSound: {fileID: 0}
+  - speakerName: Hz Muhammed
+    dialogueText: "Sizin dininiz size, benim dinim banad\u0131r."
+    characterPhoto: {fileID: 0}
+    letterSound: {fileID: 0}
