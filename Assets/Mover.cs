@@ -8,6 +8,7 @@ public class Mover : MonoBehaviour
     private InputAction moveAction;
     private Rigidbody2D rb;
     public DialogueManager dialogueManager;
+    public bool isAvailable;
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class Mover : MonoBehaviour
         moveAction = playerInput.actions["Player/Walk"];
 
         rb = GetComponent<Rigidbody2D>();
+        isAvailable = true;
     }
 
 
@@ -24,6 +26,10 @@ public class Mover : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (!isAvailable)
+        {
+            return;
+        }
         Vector2 movement = moveAction.ReadValue<Vector2>();
 
         Vector2 moveVector = movement * moveSpeed * Time.deltaTime;
@@ -33,7 +39,12 @@ public class Mover : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Handle logic when colliding with another collider
+        if (!isAvailable)
+        {
+            return;
+        }
+
+
         Debug.Log("Collided with: " + collision.gameObject.name);
         DialogueTrigger trigger = collision.gameObject.GetComponent<DialogueTrigger>();
 
@@ -41,5 +52,6 @@ public class Mover : MonoBehaviour
         {
             dialogueManager.StartDialogue(trigger.GetDialogue());
         }
+
     }
 }
