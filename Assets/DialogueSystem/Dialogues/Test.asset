@@ -16,24 +16,24 @@ MonoBehaviour:
   - speakerName: Hz Muhammed
     dialogueText: Ey kafirler!
     characterPhoto: {fileID: 0}
-    letterSound: {fileID: 0}
+    letterSound: {fileID: 8300000, guid: 55c5b709e8a1730449469ffa6511d969, type: 3}
   - speakerName: Hz Muhammed
     dialogueText: "Ben sizin tapt\u0131klar\u0131n\u0131za tapmam."
     characterPhoto: {fileID: 0}
-    letterSound: {fileID: 0}
+    letterSound: {fileID: 8300000, guid: 1cdbe6edc2ca6d245a23fb10a8cf743a, type: 3}
   - speakerName: Hz Muhammed
     dialogueText: "Benim tapt\u0131g\u0131ma da sizler tapmazs\u0131n\u0131z."
     characterPhoto: {fileID: 0}
-    letterSound: {fileID: 0}
+    letterSound: {fileID: 8300000, guid: 55c5b709e8a1730449469ffa6511d969, type: 3}
   - speakerName: Hz Muhammed
     dialogueText: "Ben de sizin tapt\u0131\u011F\u0131n\u0131za tapacak de\u011Filim."
     characterPhoto: {fileID: 0}
-    letterSound: {fileID: 0}
+    letterSound: {fileID: 8300000, guid: 55c5b709e8a1730449469ffa6511d969, type: 3}
   - speakerName: Hz Muhammed
     dialogueText: "Benim tapt\u0131\u011F\u0131ma da sizler tapm\u0131yorsunuz."
     characterPhoto: {fileID: 0}
-    letterSound: {fileID: 0}
+    letterSound: {fileID: 8300000, guid: 1cdbe6edc2ca6d245a23fb10a8cf743a, type: 3}
   - speakerName: Hz Muhammed
     dialogueText: "Sizin dininiz size, benim dinim banad\u0131r."
     characterPhoto: {fileID: 0}
-    letterSound: {fileID: 0}
+    letterSound: {fileID: 8300000, guid: 55c5b709e8a1730449469ffa6511d969, type: 3}

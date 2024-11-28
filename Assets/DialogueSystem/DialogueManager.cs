@@ -51,6 +51,8 @@ public class DialogueManager : MonoBehaviour
 
         Dialogue line = currentDialogue.dialogueLines[currentLineIndex];
         Debug.Log(line);
+        //setting sound)) (i feel russian)
+        letterSound.resource = line.letterSound;
 
         speakerName.text = line.speakerName;
         //dialogueText.text = line.dialogueText;
