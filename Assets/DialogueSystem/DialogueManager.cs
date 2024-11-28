@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     private DialogueSystem currentDialogue;
     private int currentLineIndex;
+    private AudioClip currentAudioClip;
 
     public GameObject dialogueUI;
 
@@ -52,7 +53,7 @@ public class DialogueManager : MonoBehaviour
         Dialogue line = currentDialogue.dialogueLines[currentLineIndex];
         Debug.Log(line);
         //setting sound)) (i feel russian)
-        letterSound.resource = line.letterSound;
+        currentAudioClip = line.letterSound;
 
         speakerName.text = line.speakerName;
         //dialogueText.text = line.dialogueText;
@@ -96,7 +97,7 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
             dialogueText.text += letter;
-            letterSound.Play();
+            letterSound.PlayOneShot(currentAudioClip);
             yield return new WaitForSeconds(0.1f);
         }
         dialogueText.text = text;
