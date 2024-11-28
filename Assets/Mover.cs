@@ -53,5 +53,7 @@ public class Mover : MonoBehaviour
             dialogueManager.StartDialogue(trigger.GetDialogue());
         }
 
+        RoomSwap roomSwap = collision.gameObject.GetComponent<DialogueTrigger>();
+
     }
 }
