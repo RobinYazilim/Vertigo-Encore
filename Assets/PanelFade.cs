@@ -1,22 +1,30 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelFade : MonoBehaviour
 {
-    public CanvasGroup panelGroup;
+    public float fadeDuration = 0.3f;
+    private Image img;
 
-    public float fadeDuration = 1f;
-
-    public void FadeIn()
+    void Start()
     {
-        StartCoroutine(Fade(0f, 1f));
+
+        img = GetComponent<Image>();
     }
 
-    public void FadeOut()
+    public Coroutine FadeIn()
     {
-        StartCoroutine(Fade(1f, 0f));
+        return StartCoroutine(Fade(0f, 1f));
     }
 
-    private System.Collections.IEnumerator Fade(float startAlpha, float endAlpha)
+    public Coroutine FadeOut()
+    {
+        return StartCoroutine(Fade(1f, 0f));
+    }
+
+    public IEnumerator Fade(float startAlpha, float endAlpha)
     {
         float elapsedTime = 0f;
 
@@ -24,10 +32,9 @@ public class PanelFade : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float newAlpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeDuration);
-            panelGroup.alpha = newAlpha;
+            img.color = new Color(0, 0, 0, newAlpha);
             yield return null;
         }
-
-        panelGroup.alpha = endAlpha;
+        img.color = new Color(0, 0, 0, endAlpha);
     }
 }

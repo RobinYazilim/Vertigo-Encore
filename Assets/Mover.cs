@@ -1,15 +1,17 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Mover : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 10f;
+    private float moveSpeed = 3f;
     private InputAction moveAction;
     private Rigidbody2D rb;
     public Camera cam;
     public DialogueManager dialogueManager;
     public bool isAvailable;
+    public PanelFade panelFade;
 
 
     void Start()
@@ -24,7 +26,7 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        
+
     }
     void FixedUpdate()
     {
@@ -58,8 +60,16 @@ public class Mover : MonoBehaviour
         }
         if (teleporthelper != null)
         {
-            transform.position = teleporthelper.ToPos.transform.position;
-            cam.transform.position = teleporthelper.ToPos.transform.position;
+            StartCoroutine(FinalizeTp(teleporthelper));
         }
     }
+    private IEnumerator FinalizeTp(TeleportHelper teleporthelper)
+    {
+        yield return panelFade.FadeIn();
+        transform.position = teleporthelper.ToPos.transform.position;
+        cam.transform.position = teleporthelper.ToPos.transform.position;
+        yield return new WaitForSeconds(0.4f);
+        yield return panelFade.FadeOut();
+    }
+
 }
