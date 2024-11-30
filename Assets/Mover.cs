@@ -68,7 +68,8 @@ public class Mover : MonoBehaviour
         yield return panelFade.FadeIn();
         transform.position = teleporthelper.ToPos.transform.position;
         cam.transform.position = teleporthelper.ToPos.transform.position;
-        yield return new WaitForSeconds(0.4f);
+        rb.MovePosition(teleporthelper.ToPos.transform.position);
+        yield return new WaitForSeconds(0.2f);
         yield return panelFade.FadeOut();
     }
 

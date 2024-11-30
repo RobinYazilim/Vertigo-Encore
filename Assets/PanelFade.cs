@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PanelFade : MonoBehaviour
 {
-    public float fadeDuration = 0.3f;
+    public float fadeDuration = 0.15f;
     private Image img;
 
     void Start()
