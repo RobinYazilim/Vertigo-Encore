@@ -1,14 +1,18 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Mover : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 10f;
+    private float moveSpeed = 3f;
     private InputAction moveAction;
     private Rigidbody2D rb;
+    public Camera cam;
     public DialogueManager dialogueManager;
     public bool isAvailable;
+    public PanelFade panelFade;
+
 
     void Start()
     {
@@ -22,10 +26,11 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        
+
     }
     void FixedUpdate()
     {
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(rb.position.x, rb.position.y, -10), 0.2f);
         if (!isAvailable)
         {
             return;
@@ -47,11 +52,25 @@ public class Mover : MonoBehaviour
 
         Debug.Log("Collided with: " + collision.gameObject.name);
         DialogueTrigger trigger = collision.gameObject.GetComponent<DialogueTrigger>();
+        TeleportHelper teleporthelper = collision.gameObject.GetComponent<TeleportHelper>();
 
         if (trigger != null)
         {
             dialogueManager.StartDialogue(trigger.GetDialogue());
         }
-
+        if (teleporthelper != null)
+        {
+            StartCoroutine(FinalizeTp(teleporthelper));
+        }
     }
+    private IEnumerator FinalizeTp(TeleportHelper teleporthelper)
+    {
+        yield return panelFade.FadeIn();
+        transform.position = teleporthelper.ToPos.transform.position;
+        cam.transform.position = teleporthelper.ToPos.transform.position;
+        rb.MovePosition(teleporthelper.ToPos.transform.position);
+        yield return new WaitForSeconds(0.2f);
+        yield return panelFade.FadeOut();
+    }
+
 }
