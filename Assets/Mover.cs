@@ -7,8 +7,10 @@ public class Mover : MonoBehaviour
     private float moveSpeed = 10f;
     private InputAction moveAction;
     private Rigidbody2D rb;
+    public Camera cam;
     public DialogueManager dialogueManager;
     public bool isAvailable;
+
 
     void Start()
     {
@@ -26,6 +28,7 @@ public class Mover : MonoBehaviour
     }
     void FixedUpdate()
     {
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(rb.position.x, rb.position.y, -10), 0.2f);
         if (!isAvailable)
         {
             return;
@@ -47,13 +50,16 @@ public class Mover : MonoBehaviour
 
         Debug.Log("Collided with: " + collision.gameObject.name);
         DialogueTrigger trigger = collision.gameObject.GetComponent<DialogueTrigger>();
+        TeleportHelper teleporthelper = collision.gameObject.GetComponent<TeleportHelper>();
 
         if (trigger != null)
         {
             dialogueManager.StartDialogue(trigger.GetDialogue());
         }
-
-        RoomSwap roomSwap = collision.gameObject.GetComponent<DialogueTrigger>();
-
+        if (teleporthelper != null)
+        {
+            transform.position = teleporthelper.ToPos.transform.position;
+            cam.transform.position = teleporthelper.ToPos.transform.position;
+        }
     }
 }
